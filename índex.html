@@ -1,0 +1,1462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0B0F19" />
+  <title>DOC ROI · Competitive Positioning Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://docroi.marketing/wp-content/uploads/2026/07/1b4b0df9-dfd6-4c1f-ba7f-235d2bf88de2.png">
+  <link rel="apple-touch-icon" href="https://docroi.marketing/wp-content/uploads/2026/07/1b4b0df9-dfd6-4c1f-ba7f-235d2bf88de2.png">
+  <style>
+    :root{
+      --docroi-black:#05070b;
+      --docroi-ink:#0b0f19;
+      --docroi-muted:#566273;
+      --docroi-line:#dde5ee;
+      --docroi-soft:#f6f7f9;
+      --docroi-white:#ffffff;
+      --docroi-blue:#003b5c;
+      --docroi-ice:#d8ecf8;
+      --docroi-accent:#c99a4a;
+      --blue:#0a6fae;
+      --danger:#9f1239;
+      --shadow:0 14px 36px rgba(5,7,11,.06);
+      font-family:Inter,Helvetica,Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--docroi-ink);font-family:Inter,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55}
+    button,input,select,textarea{font:inherit}
+    a{color:inherit}
+    section[id],div[id],.docroi-anchor-target{scroll-margin-top:104px}
+
+    /* DOC ROI global header */
+    .topbar{position:sticky;top:0;z-index:60;background:var(--docroi-black);color:#fff;border-bottom:1px solid rgba(255,255,255,.12)}
+    .topbar-inner{max-width:1180px;margin:0 auto;padding:10px 22px 8px}
+    .header-row{display:flex;align-items:center;gap:22px;min-height:54px}
+    .brand{display:flex;align-items:center;min-width:max-content;text-decoration:none}
+    .brand img{display:block;height:42px;width:auto;max-width:210px;object-fit:contain}
+    .header-links{display:flex;align-items:center;gap:7px;margin-left:auto}
+    .header-links a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 12px;border-radius:8px;color:#d7dde5;text-decoration:none;font-size:14px;font-weight:700}
+    .header-links a:hover{background:#151a22;color:#fff}
+    .header-links .docroi-header-action{background:#fff;color:var(--docroi-black);border:1px solid #fff;padding:9px 14px;font-weight:800}
+    .header-links .docroi-header-action:hover{background:#eef2f5;color:#000}
+    .menu-btn{display:none;border:1px solid #39424d;background:#0f131a;color:#fff;border-radius:8px;padding:9px 11px;cursor:pointer;margin-left:auto}
+    .lab-progress-block{margin:-8px 0 46px;padding:18px 0 20px;border-top:1px solid var(--docroi-line);border-bottom:1px solid var(--docroi-line);background:#fff}
+    .lab-progress-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:11px}
+    .lab-progress-copy strong{display:block;color:var(--docroi-ink);font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+    .lab-progress-copy span{display:block;margin-top:3px;color:var(--docroi-muted);font-size:13px}
+    .progress-label{display:flex;align-items:baseline;gap:7px;color:var(--docroi-blue);font-size:13px;font-weight:800;white-space:nowrap}
+    .progress-label strong{font-size:22px;line-height:1;color:var(--docroi-ink)}
+    .progress-track{height:7px;background:#e8edf2;border-radius:999px;overflow:hidden}
+    .progress-fill{height:100%;width:0;background:var(--docroi-blue);border-radius:999px;transition:.25s}
+    .nav-menu{display:none;position:fixed;top:76px;right:18px;z-index:70;width:min(320px,calc(100vw - 36px));padding:8px;background:var(--docroi-black);color:#fff;border:1px solid #303946;border-radius:8px;box-shadow:0 14px 34px rgba(0,0,0,.22)}
+    .nav-menu.open{display:block}
+    .nav-menu a{display:block;padding:11px 12px;border-radius:8px;color:#e1e7ed;text-decoration:none;font-size:14px}
+    .nav-menu a:hover{background:#151a22}
+
+    /* Functional hero with requested background */
+    .hero{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding:78px 22px 66px;background:var(--docroi-blue)}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("https://docroi.marketing/wp-content/uploads/2026/08/Background_Decision_Unit.png") center center/cover no-repeat;filter:saturate(.8) contrast(1.03)}
+    .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,59,92,.82)}
+    .hero-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;margin:0 0 16px;color:var(--docroi-ice);font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    h1{margin:0 0 20px;font-size:clamp(2.6rem,5.2vw,4.35rem);line-height:1.02;letter-spacing:0;font-weight:800}
+    .lead{max-width:760px;margin:0;color:#eef5f8;font-size:19px;line-height:1.65}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+    .hero-card{background:rgba(5,7,11,.70);border:1px solid rgba(255,255,255,.24);border-radius:8px;padding:22px;box-shadow:0 14px 36px rgba(5,7,11,.14)}
+    .hero-card h3{margin:0 0 12px;color:#fff;font-size:18px}
+    .journey-flow{display:grid;gap:8px}
+    .journey-flow div{padding:11px 12px;border-left:3px solid var(--docroi-ice);background:rgba(255,255,255,.08);border-radius:0 8px 8px 0;color:#fff;font-size:13px;font-weight:700}
+
+    /* Core UI */
+    main{max-width:1180px;margin:0 auto;padding:38px 22px 74px}
+    .section{margin:30px 0 54px}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--docroi-line)}
+    .kicker{margin-bottom:6px;color:var(--docroi-blue);font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    h2{margin:0;color:var(--docroi-ink);font-size:clamp(1.85rem,3vw,2.55rem);line-height:1.12;letter-spacing:0}
+    h3{color:var(--docroi-ink)}
+    .section-head p{max-width:520px;margin:0;color:var(--docroi-muted);font-size:16px;line-height:1.6}
+    .card{background:#fff;border:1px solid var(--docroi-line);border-radius:8px;padding:22px;box-shadow:var(--shadow)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .field{display:grid;gap:7px}
+    .field label{color:#334155;font-size:14px;font-weight:800}
+    input,select,textarea{width:100%;border:1px solid #cbd5e1;background:#fff;color:#0f172a;border-radius:8px;padding:11px 12px;outline:none;transition:.2s}
+    input:focus,select:focus,textarea:focus{border-color:var(--docroi-blue);box-shadow:0 0 0 3px rgba(0,59,92,.09)}
+    textarea{min-height:96px;resize:vertical}
+    .hint{color:var(--docroi-muted);font-size:13px;line-height:1.5}
+    .pill{display:inline-flex;border-radius:999px;padding:6px 10px;background:#eaf6fb;color:var(--docroi-blue);font-size:12px;font-weight:800}
+    .rules{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+    .rule{background:var(--docroi-soft);border:1px solid var(--docroi-line);border-radius:8px;padding:14px}
+    .rule strong{color:var(--docroi-ink);font-size:14px}
+    .rule span{display:block;margin-top:5px;color:var(--docroi-muted);font-size:13px;line-height:1.45}
+
+    .btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;padding:12px 16px;border:1px solid transparent;font-weight:800;cursor:pointer;text-decoration:none;transition:.18s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:#fff;color:var(--docroi-black);border-color:#fff}
+    .btn-blue{background:var(--docroi-blue);color:#fff;border-color:var(--docroi-blue)}
+    .btn-soft{background:#eaf6fb;color:var(--docroi-blue);border-color:#d8ecf8}
+    .btn-ghost{background:#fff;color:var(--docroi-black);border-color:var(--docroi-line)}
+    .btn-dark{background:var(--docroi-black);color:#fff;border-color:var(--docroi-black)}
+    .btn-danger{background:#fff;color:var(--danger);border-color:#fecdd3}
+
+    .table-wrap{overflow:auto;border:1px solid var(--docroi-line);border-radius:8px;background:#fff}
+    table{border-collapse:collapse;width:100%;min-width:940px}
+    th,td{border-bottom:1px solid #e5edf2;border-right:1px solid #eef3f6;padding:10px;vertical-align:top}
+    th{position:sticky;top:0;z-index:2;background:#f4f7fa;color:#334155;text-align:left;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+    td{font-size:13px}
+    tr:last-child td{border-bottom:0} th:last-child,td:last-child{border-right:0}
+    .score-select{min-width:76px;padding:8px;border-radius:8px}
+    .mini-input{min-width:125px;padding:8px;border-radius:8px}
+    .evidence-input{min-width:220px}.row-total{color:var(--docroi-blue);font-size:16px;font-weight:800}
+    .matrix-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+
+    .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .metric{border:1px solid var(--docroi-line);border-radius:8px;background:#fff;padding:18px}
+    .metric span{color:var(--docroi-muted);font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+    .metric strong{display:block;margin-top:7px;color:var(--docroi-ink);font-size:28px;letter-spacing:0}
+    .metric small{color:var(--docroi-muted);font-size:13px}
+    .bars{display:grid;gap:12px;margin-top:16px}
+    .bar-row{display:grid;grid-template-columns:160px 1fr 58px;gap:10px;align-items:center}
+    .bar-label{overflow:hidden;color:#263445;font-size:13px;font-weight:800;text-overflow:ellipsis;white-space:nowrap}
+    .bar-track{height:10px;overflow:hidden;border-radius:999px;background:#e7eef3}
+    .bar-fill{height:100%;border-radius:999px;background:var(--docroi-blue)}
+    .bar-value{color:var(--docroi-muted);font-size:12px;text-align:right}
+
+    .position-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .position-card{border:1px solid var(--docroi-line);border-radius:8px;background:#fff;padding:14px}
+    .position-card h3{margin:0 0 6px;color:var(--docroi-blue);font-size:16px}.position-card p{min-height:66px;margin:0;color:var(--docroi-muted);font-size:13px;line-height:1.45}.position-card .field{margin-top:10px}
+    .diagnosis{display:grid;grid-template-columns:.92fr 1.08fr;gap:18px}
+    .radar{display:grid;place-items:center;aspect-ratio:1/1;max-width:420px;margin:auto;background:#fff;border-radius:8px;padding:15px}
+    #radarSvg{width:100%;height:100%}
+    .insights{display:grid;gap:10px}.insight{border-top:1px solid var(--docroi-line);padding:13px 0;background:#fff}.insight:first-child{border-top:0}.insight strong{color:var(--docroi-ink);font-size:14px}.insight p{margin:5px 0 0;color:var(--docroi-muted);font-size:14px;line-height:1.5}
+    .plan-table{min-width:1080px}.priority-chip{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:800}.p1{background:#e0f2fe;color:#075985}.p2{background:#ecfeff;color:#155e75}.p3{background:#f1f5f9;color:#475569}
+    .tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 22px}.tool{padding:13px 0;border-bottom:1px solid var(--docroi-line);text-decoration:none}.tool:hover strong{text-decoration:underline}.tool strong{display:block;color:var(--docroi-blue);font-size:14px}.tool span{color:var(--docroi-muted);font-size:13px;line-height:1.45}
+    .evidence-note{border:1px solid #c8e7f6;border-radius:8px;background:#eaf6fb;padding:14px 16px;color:#24485e;font-size:14px;line-height:1.55}
+
+
+    /* Final student evidence / submission */
+    .submission-shell{border:1px solid var(--docroi-line);border-radius:8px;background:#fff;box-shadow:var(--shadow);padding:22px}
+    .submission-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+    .submission-actions{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 0}
+    .report-status{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid #c8e7f6;background:#eaf6fb;border-radius:8px;padding:14px 16px;margin-top:16px}
+    .report-status strong{display:block;color:var(--docroi-blue);font-size:15px}.report-status span{color:#37566a;font-size:13px}
+    .final-report{margin-top:20px;border:1px solid var(--docroi-line);border-radius:8px;background:#fff;overflow:hidden}
+    .final-report-empty{padding:42px 24px;text-align:center;color:var(--docroi-muted);background:var(--docroi-soft)}
+    .report-cover{background:var(--docroi-ink);color:#fff;padding:34px}
+    .report-cover .report-brand{font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--docroi-ice);text-transform:uppercase}
+    .report-cover h2{color:#fff;margin:10px 0 8px;font-size:32px;line-height:1.1}.report-cover p{margin:0;color:#d8e2e9}
+    .report-cover-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+    .report-cover-item{border-top:1px solid rgba(255,255,255,.22);padding-top:10px}.report-cover-item span{display:block;color:#aebdca;font-size:11px;text-transform:uppercase;letter-spacing:.05em}.report-cover-item strong{display:block;margin-top:4px;color:#fff;font-size:14px}
+    .report-body{padding:28px}
+    .report-section{padding:0 0 24px;margin:0 0 24px;border-bottom:1px solid var(--docroi-line)}.report-section:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+    .report-section h3{margin:0 0 14px;font-size:19px}.report-section h4{margin:16px 0 8px;font-size:14px;color:var(--docroi-blue)}
+    .report-context-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.report-context-box{background:var(--docroi-soft);border:1px solid var(--docroi-line);border-radius:8px;padding:14px}.report-context-box span{display:block;color:var(--docroi-muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}.report-context-box p{margin:6px 0 0;color:var(--docroi-ink);font-size:14px;white-space:pre-wrap}
+    .report-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.report-kpi{border:1px solid var(--docroi-line);border-radius:8px;padding:13px}.report-kpi span{display:block;color:var(--docroi-muted);font-size:11px;text-transform:uppercase;font-weight:800}.report-kpi strong{display:block;margin-top:4px;color:var(--docroi-blue);font-size:22px}.report-kpi small{display:block;margin-top:2px;color:var(--docroi-muted);font-size:11px}
+    .report-table-wrap{overflow:auto;border:1px solid var(--docroi-line);border-radius:8px}.report-table{min-width:760px}.report-table th{position:static;background:#f4f7fa}.report-table th,.report-table td{font-size:11px;padding:8px}.report-table td{white-space:normal}
+    .report-decision{border-left:4px solid var(--docroi-blue);padding:4px 0 4px 16px}.report-decision strong{display:block;margin-bottom:4px}.report-decision p{margin:0 0 12px;color:#334155;white-space:pre-wrap}
+    .report-signoff{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.sign-line{border-top:1px solid #94a3b8;padding-top:8px;color:var(--docroi-muted);font-size:12px}
+    .report-foot{background:#f4f7fa;border-top:1px solid var(--docroi-line);padding:14px 28px;color:var(--docroi-muted);font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .submission-note{margin-top:12px;color:var(--docroi-muted);font-size:13px}
+
+    /* DIIIP + KAI ROI closing system */
+    .diiip-section{background:var(--docroi-blue);color:#fff;padding:72px 24px}
+    .diiip-inner{max-width:980px;margin:0 auto}.closing-heading{max-width:760px;margin:0 auto 34px;text-align:center}.closing-heading span{display:block;margin-bottom:12px;color:var(--docroi-ice);font-size:12px;font-weight:900;letter-spacing:.06em}.closing-heading h2{margin:0 0 18px;color:#fff;font-size:clamp(2rem,4vw,2.65rem);line-height:1.12}.closing-heading p{margin:0;color:#eaf6fb;font-size:17px;line-height:1.75}
+    .diiip-list{display:grid;gap:10px}.diiip-item{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center;border:1px solid #e5e7eb;border-radius:8px;background:#fff;color:var(--docroi-ink);padding:16px 20px}.diiip-item>div{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:8px;background:var(--docroi-ink);color:#fff;font-size:28px;font-weight:900}.diiip-item strong{display:block;margin-bottom:4px;font-size:20px}.diiip-item p{margin:0;color:#5b6472;font-size:15px;line-height:1.55}
+    .kai-section{background:var(--docroi-ink);color:#fff;padding:78px 24px}.kai-inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:34px;align-items:center;max-width:1180px;margin:0 auto}.kai-pill{display:inline-block;margin-bottom:22px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.1);padding:10px 15px;color:var(--docroi-ice);font-size:12px;font-weight:900;letter-spacing:.06em}.kai-section h2{margin:0 0 22px;color:#fff;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.04}.kai-section p{color:#edf2f7;font-size:16px;line-height:1.8}.kai-card{border-radius:8px;background:#fff;color:var(--docroi-ink);padding:30px}.kai-card>span{display:inline-block;margin-bottom:16px;border:1px solid var(--docroi-ice);border-radius:999px;background:#eaf6fb;padding:8px 12px;color:var(--docroi-blue);font-size:12px;font-weight:900}.kai-card h3{margin:0 0 16px;font-size:clamp(1.7rem,4vw,2.4rem)}.kai-card p,.kai-card li{color:#5b6472;line-height:1.7}.kai-card .resource-box{margin-bottom:24px;border:1px solid #e1e7ef;border-radius:8px;background:#f1f4f8;padding:18px}.kai-card a{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:8px;background:var(--docroi-black);color:#fff;font-weight:900;text-decoration:none}
+    .docroi-footer{background:#000;padding:68px 24px 54px;text-align:center}.docroi-footer>div{max-width:920px;margin:0 auto}.docroi-footer img{display:block;width:auto;height:72px;margin:0 auto 24px}.docroi-footer a{color:#fff;font-weight:900;text-decoration:none}.docroi-footer nav{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;margin-bottom:24px;color:#d1d5db}.docroi-footer nav a{color:#d1d5db;font-size:14px;font-weight:400}.copyright{color:#c0c7d1;line-height:1.9}.copyright a{white-space:nowrap}
+
+    .toast{position:fixed;left:50%;bottom:24px;z-index:80;pointer-events:none;opacity:0;transform:translate(-50%,20px);border-radius:8px;background:var(--docroi-ink);padding:11px 15px;color:#fff;font-size:13px;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+    @media(max-width:1000px){.hero-grid,.diagnosis{grid-template-columns:1fr}.grid-3,.grid-5,.metric-grid,.position-grid{grid-template-columns:repeat(2,1fr)}.rules{grid-template-columns:repeat(2,1fr)}.hero-card{max-width:720px}.header-links{display:none}.menu-btn{display:inline-flex}}
+    @media(max-width:680px){.topbar-inner{padding:9px 14px 7px}.brand img{height:36px;max-width:165px}.hero{padding:54px 16px 44px}.hero-grid{gap:24px}main{padding:26px 14px 52px}.section-head{align-items:flex-start;flex-direction:column;gap:10px}.grid-2,.grid-3,.grid-5,.metric-grid,.position-grid,.rules,.tool-grid{grid-template-columns:1fr}.card{padding:16px}.bar-row{grid-template-columns:115px 1fr 44px}.btn{width:100%}.hero-actions .btn{width:auto}.diiip-section,.kai-section{padding-left:16px;padding-right:16px}.diiip-item{grid-template-columns:1fr}.diiip-item>div{margin-bottom:4px}.docroi-footer img{height:58px}.lab-progress-head{align-items:flex-start}.lab-progress-copy span{font-size:12px}.progress-label{font-size:11px}.progress-label strong{font-size:19px}}
+    @media(max-width:900px){.submission-meta,.report-cover-grid,.report-kpis{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.submission-meta,.report-cover-grid,.report-kpis,.report-context-grid,.report-signoff{grid-template-columns:1fr}.report-cover{padding:24px}.report-body{padding:18px}.submission-shell{padding:16px}}
+    @media print{.topbar,.hero-actions,.matrix-actions,.no-print,.nav-menu,.diiip-section,.kai-section,.docroi-footer{display:none!important}body{background:#fff}.hero{background:#fff;color:#000;padding:18px 0}.hero::before,.hero::after{display:none}.lead{color:#333}.hero-card{border:1px solid #ccc;background:#fff;color:#000;box-shadow:none}.journey-flow div{border:1px solid #ddd;background:#fff;color:#000}main{max-width:none;padding:0}.card,.metric,.position-card{box-shadow:none;break-inside:avoid}.section{margin:18px 0;break-inside:avoid}
+      body.print-final .hero,body.print-final main>.section:not(#final-evidence){display:none!important}
+      body.print-final #final-evidence{display:block!important;margin:0;padding:0}
+      body.print-final #final-evidence>.section-head,body.print-final #final-evidence>.submission-shell>.submission-meta,body.print-final #final-evidence>.submission-shell>.submission-actions,body.print-final #final-evidence>.submission-shell>.report-status,body.print-final #final-evidence>.submission-shell>.submission-note{display:none!important}
+      body.print-final .submission-shell{border:0;box-shadow:none;padding:0}
+      body.print-final .final-report{border:0;margin:0}
+      body.print-final .report-cover{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+      body.print-final .report-section{break-inside:auto}
+      body.print-final .report-table-wrap{overflow:visible;border-color:#bbb}
+      body.print-final .report-table{min-width:0;width:100%}
+      body.print-final .report-table th,body.print-final .report-table td{font-size:8.5pt;padding:5px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="header-row">
+        <a class="brand" href="https://el-botiquin-del-doc-roi.vercel.app/" target="_blank" rel="noreferrer" aria-label="DOC ROI">
+          <img src="https://docroi.marketing/wp-content/uploads/2026/07/Logo_Negro_DoC_ROI.jpg" alt="DOC ROI" />
+        </a>
+        <nav class="header-links" aria-label="Primary navigation">
+          <a href="#context">Method</a>
+          <a href="#evidence">Resources</a>
+          <a class="docroi-header-action" href="#matrix">Open the lab</a>
+        </nav>
+        <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-menu" id="navMenu">
+    <a href="#context">01 · Context</a>
+    <a href="#competitors">02 · Competitive set</a>
+    <a href="#matrix">03 · Journey matrix</a>
+    <a href="#reading">04 · Matrix reading</a>
+    <a href="#positioning">05 · Digital positioning</a>
+    <a href="#plan">06 · Positioning plan</a>
+    <a href="#evidence">07 · Evidence & export</a>
+    <a href="#final-evidence">08 · Final submission</a>
+    <a href="#resources">DIIIP methodology</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Marketing Management I · Session 03</div>
+        <h1>Competition & Positioning Lab</h1>
+        <p class="lead">
+          Build an evidence-based competitive matrix, diagnose your current digital position and convert the findings into a focused positioning plan.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#context">Start the lab</a>
+          <button class="btn btn-blue" id="loadExampleTop">Load classroom example</button>
+          <button class="btn btn-ghost" id="startBlankTop">Start blank / reset example</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>One sequence. One defensible output.</h3>
+        <div class="journey-flow">
+          <div>01 · PRODUCT + BUYER PERSONA + MARKET</div>
+          <div>02 · COMPETITIVE SET</div>
+          <div>03 · JOURNEY MATRIX</div>
+          <div>04 · DIGITAL POSITIONING</div>
+          <div>05 · STRATEGIC DECISION</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="context" data-step="1">
+      <div class="section-head">
+        <div>
+          <div class="kicker">01 · Define the decision</div>
+          <h2>Start with the customer, not with a list of brands.</h2>
+        </div>
+        <p>Competition is relevant only when the product, Buyer Persona and market context are explicit.</p>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div class="field">
+            <label>Our brand</label>
+            <input id="brandName" placeholder="e.g. Don Espadín" data-required />
+          </div>
+          <div class="field">
+            <label>Product / service</label>
+            <input id="productName" placeholder="What exactly are we analysing?" data-required />
+          </div>
+          <div class="field">
+            <label>Buyer Persona</label>
+            <textarea id="buyerPersona" placeholder="Needs, pains, buying criteria, decision triggers..." data-required></textarea>
+          </div>
+          <div class="field">
+            <label>Market</label>
+            <textarea id="marketContext" placeholder="Sector, geography, category and decision context..." data-required></textarea>
+          </div>
+        </div>
+        <div class="rules">
+          <div class="rule"><strong>Product</strong><span>Category · value proposition · use case</span></div>
+          <div class="rule"><strong>Buyer Persona</strong><span>Needs · pains · buying criteria</span></div>
+          <div class="rule"><strong>Market</strong><span>Sector · geography · context</span></div>
+          <div class="rule"><strong>Competitive pressure</strong><span>Attention · trust · demand · conversion</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lab-progress-block" aria-label="Lab progress">
+      <div class="lab-progress-head">
+        <div class="lab-progress-copy">
+          <strong>Lab progress</strong>
+          <span>Your working progress through the competition and positioning lab.</span>
+        </div>
+        <div class="progress-label"><span>COMPLETED</span><strong id="progressText">0%</strong></div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <section class="section" id="competitors" data-step="2">
+      <div class="section-head">
+        <div>
+          <div class="kicker">02 · Build the competitive set</div>
+          <h2>Leader + five relevant competitors.</h2>
+        </div>
+        <p>Direct competitors are only one category. Consider attention, demand, channels and substitutes when they compete for the same customer decision.</p>
+      </div>
+      <div class="card">
+        <div class="table-wrap">
+          <table id="competitorTable">
+            <thead>
+              <tr>
+                <th style="width:50px">#</th>
+                <th>Brand</th>
+                <th>Role</th>
+                <th>Why relevant?</th>
+                <th>Website / evidence starting point</th>
+              </tr>
+            </thead>
+            <tbody id="competitorBody"></tbody>
+          </table>
+        </div>
+        <div class="matrix-actions no-print">
+          <button class="btn btn-soft" id="loadExample">Load classroom example</button>
+          <button class="btn btn-ghost" id="clearCompetitors">Clear competitors</button>
+          <button class="btn btn-danger" id="startBlank">Start blank / reset example</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="matrix" data-step="3">
+      <div class="section-head">
+        <div>
+          <div class="kicker">03 · Competitive Marketing Matrix</div>
+          <h2>Score observable activity across the journey.</h2>
+        </div>
+        <p>Use 1–5 only when evidence exists. Use N/O when a signal cannot be observed. Unknown is not zero.</p>
+      </div>
+
+      <div class="evidence-note">
+        <strong>Scoring rule:</strong> 1 = Very low · 2 = Limited · 3 = Established · 4 = Strong · 5 = Category-leading · N/O = Not observable.
+        Every score should be defensible with a source, date checked and a short justification.
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="table-wrap">
+          <table id="matrixTable">
+            <thead id="matrixHead"></thead>
+            <tbody id="matrixBody"></tbody>
+          </table>
+        </div>
+        <div class="matrix-actions no-print">
+          <button class="btn btn-blue" id="calculateBtn">Recalculate diagnosis</button>
+          <button class="btn btn-ghost" id="clearScores">Clear scores</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reading" data-step="4">
+      <div class="section-head">
+        <div>
+          <div class="kicker">04 · Read the matrix</div>
+          <h2>Two readings: competitor pressure and technique intensity.</h2>
+        </div>
+        <p>Horizontal reading shows who applies the strongest visible pressure. Vertical reading shows saturated or underused techniques.</p>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric"><span>Our matrix score</span><strong id="ourScore">—</strong><small>Average observable score</small></div>
+        <div class="metric"><span>Highest competitor</span><strong id="leaderScore">—</strong><small id="leaderName">No data yet</small></div>
+        <div class="metric"><span>Main saturated technique</span><strong id="saturatedTechnique">—</strong><small>Highest competitive intensity</small></div>
+        <div class="metric"><span>Potential whitespace</span><strong id="gapTechnique">—</strong><small>Low intensity; validate Buyer Persona relevance</small></div>
+      </div>
+
+      <div class="grid-2" style="margin-top:18px">
+        <div class="card">
+          <span class="pill">Horizontal reading</span>
+          <h3>Competitive pressure</h3>
+          <div class="bars" id="competitorBars"></div>
+        </div>
+        <div class="card">
+          <span class="pill">Vertical reading</span>
+          <h3>Technique intensity</h3>
+          <div class="bars" id="techniqueBars"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="positioning" data-step="5">
+      <div class="section-head">
+        <div>
+          <div class="kicker">05 · Digital positioning diagnosis</div>
+          <h2>Visibility is broader than SEO.</h2>
+        </div>
+        <p>Assess the observable relative presence of the brand where the customer discovers, compares and decides.</p>
+      </div>
+
+      <div class="position-grid" id="positionGrid"></div>
+
+      <div class="diagnosis" style="margin-top:18px">
+        <div class="radar card">
+          <svg id="radarSvg" viewBox="0 0 400 400" role="img" aria-label="Digital positioning radar"></svg>
+        </div>
+        <div class="card">
+          <span class="pill">State analysis</span>
+          <h3>Current positioning diagnosis</h3>
+          <div class="insights" id="positionInsights"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="plan" data-step="6">
+      <div class="section-head">
+        <div>
+          <div class="kicker">06 · Turn evidence into a plan</div>
+          <h2>Build a focused positioning plan.</h2>
+        </div>
+        <p>The goal is not “do more marketing”. The goal is to define which objective is justified by the evidence and how it will be measured.</p>
+      </div>
+
+      <div class="card">
+        <div class="grid-3">
+          <div class="field">
+            <label>Strategic positioning objective</label>
+            <textarea id="positionObjective" placeholder="What should become more visible, credible or distinctive?" data-required></textarea>
+          </div>
+          <div class="field">
+            <label>Target perception / association</label>
+            <textarea id="targetPerception" placeholder="What should the Buyer Persona believe, compare or remember?" data-required></textarea>
+          </div>
+          <div class="field">
+            <label>Main evidence-based gap</label>
+            <textarea id="mainGap" placeholder="Which gap or pressure justifies this decision?" data-required></textarea>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="margin-top:18px">
+          <table class="plan-table">
+            <thead>
+              <tr>
+                <th>Priority</th>
+                <th>Positioning dimension</th>
+                <th>Action</th>
+                <th>Evidence / rationale</th>
+                <th>KPI</th>
+                <th>Baseline</th>
+                <th>Target</th>
+                <th>Owner</th>
+                <th>Horizon</th>
+              </tr>
+            </thead>
+            <tbody id="planBody"></tbody>
+          </table>
+        </div>
+
+        <div class="matrix-actions no-print">
+          <button class="btn btn-blue" id="suggestPlan">Suggest plan from diagnosis</button>
+          <button class="btn btn-ghost" id="clearPlan">Clear plan</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evidence" data-step="7">
+      <div class="section-head">
+        <div>
+          <div class="kicker">07 · Evidence & handover</div>
+          <h2>Make the output defendable.</h2>
+        </div>
+        <p>Your handover should contain the competitive set, journey matrix, matrix reading, positioning diagnosis and one strategic implication.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Research toolkit</h3>
+          <div class="tool-grid">
+            <a class="tool" target="_blank" rel="noopener" href="https://www.similarweb.com/corp/web/competitive-analysis/"><strong>Similarweb</strong><span>Competitive traffic and channel signals.</span></a>
+            <a class="tool" target="_blank" rel="noopener" href="https://www.semrush.com/features/advertising-research/"><strong>Semrush</strong><span>Paid search and advertising research.</span></a>
+            <a class="tool" target="_blank" rel="noopener" href="https://www.sistrix.com/visibility-index/"><strong>SISTRIX</strong><span>Organic visibility and search positioning.</span></a>
+            <a class="tool" target="_blank" rel="noopener" href="https://trends.google.com/"><strong>Google Trends</strong><span>Relative brand and category demand.</span></a>
+            <a class="tool" target="_blank" rel="noopener" href="https://www.facebook.com/ads/library/"><strong>Meta Ad Library</strong><span>Active social campaigns and creative signals.</span></a>
+            <a class="tool" target="_blank" rel="noopener" href="https://sparktoro.com/"><strong>SparkToro</strong><span>Audience environments and attention.</span></a>
+            <a class="tool" target="_blank" rel="noopener" href="https://builtwith.com/"><strong>BuiltWith</strong><span>Observable website technology stack.</span></a>
+            <a class="tool" target="_blank" rel="noopener" href="https://ahrefs.com/brand-radar"><strong>Ahrefs Brand Radar</strong><span>Brand visibility in AI-generated discovery.</span></a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Export your evidence</h3>
+          <p class="hint">Keep your working evidence. Your score is useful only when another person can understand why you assigned it.</p>
+          <div class="matrix-actions no-print">
+            <a class="btn btn-dark" href="#final-evidence">Build final submission</a>
+            <button class="btn btn-soft" id="exportCsv">Export matrix · CSV</button>
+            <button class="btn btn-ghost" id="copySummary">Copy executive summary</button>
+            <button class="btn btn-danger" id="resetAll">Reset lab</button>
+          </div>
+          <div class="evidence-note" style="margin-top:16px">
+            <strong>Three-minute defence:</strong> “What evidence changed how we understand our competitive position?”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="final-evidence" data-step="8">
+      <div class="section-head">
+        <div>
+          <div class="kicker">08 · Final student evidence</div>
+          <h2>Generate the document you will submit.</h2>
+        </div>
+        <p>This final evidence consolidates the complete exercise into one shareable document: context, competitive set, matrix, diagnosis, positioning and action plan.</p>
+      </div>
+
+      <div class="submission-shell">
+        <div class="submission-meta">
+          <div class="field"><label>Student / team name</label><input id="studentName" placeholder="Name or team" /></div>
+          <div class="field"><label>Group / cohort</label><input id="studentGroup" placeholder="Group / cohort" /></div>
+          <div class="field"><label>Submission date</label><input id="submissionDate" type="date" /></div>
+          <div class="field"><label>Project / case</label><input id="submissionCase" placeholder="Case name" /></div>
+        </div>
+        <div class="field">
+          <label>Final defence · What evidence changed how you understand your competitive position?</label>
+          <textarea id="defenceAnswer" placeholder="Write the evidence-based conclusion you would defend in class."></textarea>
+        </div>
+
+        <div class="submission-actions no-print">
+          <button class="btn btn-dark" id="generateFinal">Generate / refresh final evidence</button>
+          <button class="btn btn-blue" id="downloadImage">Download as image · PNG</button>
+          <button class="btn btn-soft" id="downloadPdf">Download as PDF</button>
+          <button class="btn btn-ghost" id="exportJson">Download evidence · JSON</button>
+          <button class="btn btn-ghost" id="printFinal">Print final evidence</button>
+          <button class="btn btn-ghost" id="shareFinal">Share final evidence</button>
+        </div>
+
+        <div class="report-status">
+          <div><strong>Student deliverable</strong><span>The generated report below is the evidence of completion for this lab.</span></div>
+          <div><strong id="finalProgress">0%</strong><span>lab completion</span></div>
+        </div>
+        <p class="submission-note">The classroom example is optional. Every new page load starts blank. Use “Start blank / reset example” at any time to clear the exercise.</p>
+
+        <div class="final-report" id="finalReport">
+          <div class="final-report-empty">Complete the lab and select <strong>Generate / refresh final evidence</strong>.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="resources" class="diiip-section docroi-anchor-target">
+    <div class="diiip-inner">
+      <div class="closing-heading">
+        <span>METHODOLOGY AT THE END OF THE JOURNEY</span>
+        <h2>DIIIP explains how competitive evidence becomes a positioning decision</h2>
+        <p>The lab is complete when observations are transformed into structured evidence, interpreted as competitive intelligence and converted into measurable positioning actions.</p>
+      </div>
+
+      <div class="diiip-list">
+        <div class="diiip-item">
+          <div>D</div>
+          <section>
+            <strong>Data</strong>
+            <p>Observable competitor signals: brands, URLs, sources, dates, journey activities, search presence, campaigns, audience environments and AI visibility.</p>
+          </section>
+        </div>
+        <div class="diiip-item">
+          <div>I</div>
+          <section>
+            <strong>Information</strong>
+            <p>The evidence is structured into the competitive set, journey matrix and five positioning dimensions: Search, Demand, Paid, Audience and AI.</p>
+          </section>
+        </div>
+        <div class="diiip-item">
+          <div>I</div>
+          <section>
+            <strong>Intelligence</strong>
+            <p>Comparable scores reveal competitor pressure, technique intensity, saturation and underused spaces without treating missing evidence as zero.</p>
+          </section>
+        </div>
+        <div class="diiip-item">
+          <div>I</div>
+          <section>
+            <strong>Insights</strong>
+            <p>The diagnosis identifies relative strengths, visibility gaps, relevant whitespace and the evidence that should change the next marketing decision.</p>
+          </section>
+        </div>
+        <div class="diiip-item">
+          <div>P</div>
+          <section>
+            <strong>Personalization Actions</strong>
+            <p>The findings become prioritized positioning actions with a KPI, baseline, target, owner and execution horizon for the defined Buyer Persona and market.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kai-roi" class="kai-section docroi-anchor-target">
+    <div class="kai-inner">
+      <div>
+        <span class="kai-pill">KAI·ROI EQUATION · CUSTOMER EQUITY</span>
+        <h2>This Competitive Positioning Lab creates operational evidence for the KAI·ROI layer</h2>
+        <p>The lab does not redefine KAI·ROI. It creates a structured evidence asset that can support strategic implementation, Customer Equity reasoning, resource productivity and ROI analysis.</p>
+        <p>The formal KAI·ROI structure remains sovereign; this tool focuses on the quality of the competitive and positioning decision that feeds later measurement.</p>
+      </div>
+
+      <div class="kai-card">
+        <span>EXECUTIVE RESOURCE</span>
+        <h3>The KAI·ROI Equation Book</h3>
+        <p>A concise guide to understand how data, ROI, Customer Equity and strategic decisions connect inside the DOC ROI ecosystem.</p>
+        <div class="resource-box">
+          <strong>Inside the document:</strong>
+          <ul>
+            <li>What the KAI·ROI Equation is</li>
+            <li>Why Customer Equity matters</li>
+            <li>How ROI becomes a decision system</li>
+            <li>Why data must be monetized with purpose</li>
+          </ul>
+        </div>
+        <a href="https://docroi.marketing/kai-equation/" target="_blank" rel="noreferrer">Access the KAI·ROI Equation →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="docroi-footer">
+    <div>
+      <a href="https://el-botiquin-del-doc-roi.vercel.app/" target="_blank" rel="noreferrer">
+        <img src="https://docroi.marketing/wp-content/uploads/2026/07/Logo_Negro_DoC_ROI.jpg" alt="DOC ROI" />
+      </a>
+      <p><a href="https://doc-roi-executive.vercel.app/" target="_blank" rel="noreferrer">Consult with DOC ROI →</a></p>
+      <nav>
+        <a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noreferrer">Privacy Policy</a>
+        <span>|</span>
+        <a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noreferrer">Legal Notice</a>
+        <span>|</span>
+        <a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noreferrer">Intellectual Property</a>
+      </nav>
+      <p class="copyright">The intellectual property of the DOC ROI ecosystem belongs to <a href="https://docroi.marketing/ph-d-jorge-lucio/" target="_blank" rel="noreferrer">Ph. D. Jorge Lucio.</a></p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Saved</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script>
+(() => {
+  const techniques = [
+    {key:'seo',label:'SEO',stage:'Awareness'},
+    {key:'paid',label:'Paid',stage:'Awareness'},
+    {key:'social',label:'Social',stage:'Awareness'},
+    {key:'content',label:'Content',stage:'Consideration'},
+    {key:'reviews',label:'Reviews',stage:'Consideration'},
+    {key:'cro',label:'CRO',stage:'Conversion'},
+    {key:'whatsapp',label:'WhatsApp',stage:'Conversion'}
+  ];
+
+  const positionDimensions = [
+    {key:'search', label:'Search', text:'Organic visibility · keywords · URLs · domains'},
+    {key:'demand', label:'Demand', text:'Brand and category search interest'},
+    {key:'paid', label:'Paid', text:'Advertising presence · messages · landing pages'},
+    {key:'audience', label:'Audience', text:'Sources · communities · attention environments'},
+    {key:'ai', label:'AI', text:'Mentions · citations · AI discovery'}
+  ];
+
+  const competitorRoles = [
+    'Market leader','Direct competitor','Attention competitor','Demand competitor','Channel competitor','Substitute competitor'
+  ];
+
+  const state = {
+    scores: {},
+    evidence: {},
+    positioning: {}
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const safe = (v='') => String(v ?? '');
+  const escapeHtml = (s='') => safe(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+  const scoreOptions = () => `
+    <option value="">—</option>
+    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+    <option value="4">4</option><option value="5">5</option><option value="NO">N/O</option>`;
+
+  function initCompetitors(){
+    const body = $('competitorBody');
+    body.innerHTML = '';
+    for(let i=0;i<6;i++){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${i+1}</strong></td>
+        <td><input class="mini-input comp-name" data-i="${i}" placeholder="${i===0?'Market leader':'Competitor '+i}"></td>
+        <td>
+          <select class="mini-input comp-role" data-i="${i}">
+            ${competitorRoles.map((r,idx)=>`<option ${idx===Math.min(i,5)?'selected':''}>${r}</option>`).join('')}
+          </select>
+        </td>
+        <td><textarea class="mini-input comp-why" data-i="${i}" placeholder="Why does this brand compete for the same customer, demand or attention?"></textarea></td>
+        <td><input class="mini-input comp-url" data-i="${i}" placeholder="https://..."></td>`;
+      body.appendChild(tr);
+    }
+  }
+
+  function getCompetitors(){
+    return [...document.querySelectorAll('#competitorBody tr')].map((tr,i)=>({
+      name: tr.querySelector('.comp-name').value.trim(),
+      role: tr.querySelector('.comp-role').value,
+      why: tr.querySelector('.comp-why').value.trim(),
+      url: tr.querySelector('.comp-url').value.trim(),
+      index:i
+    }));
+  }
+
+  function matrixRows(){
+    const own = $('brandName').value.trim() || 'Our brand';
+    return [{name:own, role:'Our brand', own:true, index:'own'}, ...getCompetitors().filter(c=>c.name)];
+  }
+
+  function rebuildMatrix(preserve=true){
+    const oldScores = preserve ? {...state.scores} : {};
+    const oldEvidence = preserve ? {...state.evidence} : {};
+    const head = $('matrixHead');
+    const body = $('matrixBody');
+    head.innerHTML = `<tr>
+      <th>Brand</th>
+      ${techniques.map(t=>`<th>${t.label}<br><span style="font-size:9px;color:#64748B">${t.stage}</span></th>`).join('')}
+      <th>Average</th><th>Evidence note</th>
+    </tr>`;
+    body.innerHTML = '';
+
+    matrixRows().forEach((row,ridx)=>{
+      const rowKey = row.index;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${escapeHtml(row.name)}</strong><br><span class="hint">${escapeHtml(row.role)}</span></td>
+        ${techniques.map(t=>{
+          const k = `${rowKey}|${t.key}`;
+          return `<td><select class="score-select matrix-score" data-row="${rowKey}" data-tech="${t.key}">
+            ${scoreOptions()}</select></td>`;
+        }).join('')}
+        <td class="row-total" id="total-${String(rowKey).replace(/[^a-z0-9]/gi,'_')}">—</td>
+        <td><textarea class="mini-input evidence-input row-evidence" data-row="${rowKey}" placeholder="Source · date checked · short justification"></textarea></td>`;
+      body.appendChild(tr);
+
+      techniques.forEach(t=>{
+        const el = tr.querySelector(`[data-tech="${t.key}"]`);
+        const key = `${rowKey}|${t.key}`;
+        if(oldScores[key] !== undefined) el.value = oldScores[key];
+      });
+      const e = tr.querySelector('.row-evidence');
+      if(oldEvidence[rowKey] !== undefined) e.value = oldEvidence[rowKey];
+    });
+
+    attachMatrixListeners();
+    calculate();
+  }
+
+  function attachMatrixListeners(){
+    document.querySelectorAll('.matrix-score').forEach(el=>{
+      el.addEventListener('change', ()=>{
+        state.scores[`${el.dataset.row}|${el.dataset.tech}`] = el.value;
+        calculate();
+        saveLocal();
+      });
+    });
+    document.querySelectorAll('.row-evidence').forEach(el=>{
+      el.addEventListener('input', ()=>{
+        state.evidence[el.dataset.row] = el.value;
+        saveLocal();
+      });
+    });
+  }
+
+  function valNum(v){ return /^\d$/.test(v) ? Number(v) : null; }
+
+  function rowStats(rowKey){
+    const vals = techniques.map(t=>valNum(state.scores[`${rowKey}|${t.key}`])).filter(v=>v!==null);
+    return {
+      sum: vals.reduce((a,b)=>a+b,0),
+      avg: vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null,
+      count: vals.length
+    };
+  }
+
+  function techniqueStats(key){
+    const vals = matrixRows().map(r=>valNum(state.scores[`${r.index}|${key}`])).filter(v=>v!==null);
+    return {
+      sum: vals.reduce((a,b)=>a+b,0),
+      avg: vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null,
+      count: vals.length
+    };
+  }
+
+  function calculate(){
+    const rows = matrixRows();
+    rows.forEach(r=>{
+      const s = rowStats(r.index);
+      const id = `total-${String(r.index).replace(/[^a-z0-9]/gi,'_')}`;
+      const el = $(id);
+      if(el) el.textContent = s.avg===null ? '—' : s.avg.toFixed(2);
+    });
+
+    const own = rowStats('own');
+    $('ourScore').textContent = own.avg===null ? '—' : own.avg.toFixed(2);
+
+    const comps = rows.filter(r=>!r.own).map(r=>({name:r.name,...rowStats(r.index)})).filter(x=>x.avg!==null);
+    comps.sort((a,b)=>b.avg-a.avg);
+    $('leaderScore').textContent = comps.length ? comps[0].avg.toFixed(2) : '—';
+    $('leaderName').textContent = comps.length ? comps[0].name : 'No data yet';
+
+    const tech = techniques.map(t=>({label:t.label,key:t.key,...techniqueStats(t.key)})).filter(x=>x.avg!==null);
+    const high = [...tech].sort((a,b)=>b.avg-a.avg)[0];
+    const low = [...tech].sort((a,b)=>a.avg-b.avg)[0];
+    $('saturatedTechnique').textContent = high ? high.label : '—';
+    $('gapTechnique').textContent = low ? low.label : '—';
+
+    renderBars();
+    renderPositionDiagnosis();
+    updateProgress();
+  }
+
+  function renderBars(){
+    const rows = matrixRows().map(r=>({name:r.name,...rowStats(r.index)})).filter(r=>r.avg!==null).sort((a,b)=>b.avg-a.avg);
+    $('competitorBars').innerHTML = rows.length ? rows.map(r=>`
+      <div class="bar-row">
+        <div class="bar-label" title="${escapeHtml(r.name)}">${escapeHtml(r.name)}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.max(0,Math.min(100,(r.avg/5)*100))}%"></div></div>
+        <div class="bar-value">${r.avg.toFixed(2)}/5</div>
+      </div>`).join('') : `<div class="hint">Add scores to generate this reading.</div>`;
+
+    const tech = techniques.map(t=>({label:t.label,...techniqueStats(t.key)})).filter(t=>t.avg!==null).sort((a,b)=>b.avg-a.avg);
+    $('techniqueBars').innerHTML = tech.length ? tech.map(t=>`
+      <div class="bar-row">
+        <div class="bar-label">${escapeHtml(t.label)}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${(t.avg/5)*100}%"></div></div>
+        <div class="bar-value">${t.avg.toFixed(2)}/5</div>
+      </div>`).join('') : `<div class="hint">Add scores to generate this reading.</div>`;
+  }
+
+  function initPositioning(){
+    const grid = $('positionGrid');
+    grid.innerHTML = positionDimensions.map(d=>`
+      <div class="position-card">
+        <h3>${d.label}</h3>
+        <p>${d.text}</p>
+        <div class="field">
+          <label>Current score</label>
+          <select class="position-score" data-key="${d.key}">${scoreOptions()}</select>
+        </div>
+        <div class="field">
+          <label>Evidence</label>
+          <textarea class="position-evidence" data-key="${d.key}" placeholder="What did you observe?"></textarea>
+        </div>
+      </div>`).join('');
+
+    document.querySelectorAll('.position-score').forEach(el=>el.addEventListener('change',()=>{
+      state.positioning[el.dataset.key] = state.positioning[el.dataset.key] || {};
+      state.positioning[el.dataset.key].score = el.value;
+      renderPositionDiagnosis(); saveLocal(); updateProgress();
+    }));
+    document.querySelectorAll('.position-evidence').forEach(el=>el.addEventListener('input',()=>{
+      state.positioning[el.dataset.key] = state.positioning[el.dataset.key] || {};
+      state.positioning[el.dataset.key].evidence = el.value;
+      saveLocal(); updateProgress();
+    }));
+  }
+
+  function positionScore(key){
+    const v = state.positioning[key]?.score;
+    return valNum(v);
+  }
+
+  function renderPositionDiagnosis(){
+    drawRadar();
+    const scored = positionDimensions.map(d=>({...d,score:positionScore(d.key)})).filter(d=>d.score!==null);
+    const box = $('positionInsights');
+    if(!scored.length){
+      box.innerHTML = `<div class="insight"><strong>No positioning scores yet</strong><p>Score Search, Demand, Paid, Audience and AI using observable evidence.</p></div>`;
+      return;
+    }
+    const sorted = [...scored].sort((a,b)=>b.score-a.score);
+    const strongest = sorted[0];
+    const weakest = [...scored].sort((a,b)=>a.score-b.score)[0];
+    const avg = scored.reduce((a,b)=>a+b.score,0)/scored.length;
+    const pressure = rowStats('own').avg;
+
+    box.innerHTML = `
+      <div class="insight"><strong>Overall digital position</strong><p>${avg.toFixed(2)}/5 across ${scored.length} observable dimensions.</p></div>
+      <div class="insight"><strong>Strongest relative signal · ${escapeHtml(strongest.label)}</strong><p>${strongest.score}/5. Protect and connect this strength to the Buyer Persona's decision criteria.</p></div>
+      <div class="insight"><strong>Priority diagnosis · ${escapeHtml(weakest.label)}</strong><p>${weakest.score}/5. Validate whether improving this dimension would materially affect discovery, comparison or decision.</p></div>
+      <div class="insight"><strong>Journey consistency</strong><p>${pressure===null?'Complete the Competitive Marketing Matrix to compare positioning with visible journey activity.':`Our observable journey activity averages ${pressure.toFixed(2)}/5. Compare this with the positioning scores before choosing an objective.`}</p></div>`;
+  }
+
+  function drawRadar(){
+    const svg = $('radarSvg');
+    const cx=200, cy=200, maxR=145, n=positionDimensions.length;
+    const point = (i,r)=>{
+      const a = -Math.PI/2 + i*2*Math.PI/n;
+      return [cx + Math.cos(a)*r, cy + Math.sin(a)*r];
+    };
+    let html='';
+    for(let level=1; level<=5; level++){
+      const pts = Array.from({length:n},(_,i)=>point(i,maxR*level/5).join(',')).join(' ');
+      html += `<polygon points="${pts}" fill="none" stroke="#D9E3EA" stroke-width="1"/>`;
+    }
+    for(let i=0;i<n;i++){
+      const [x,y]=point(i,maxR);
+      html += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#E5EDF2"/>`;
+      const [lx,ly]=point(i,maxR+28);
+      html += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="11" font-family="Inter" fill="#334155">${positionDimensions[i].label}</text>`;
+    }
+    const vals = positionDimensions.map(d=>positionScore(d.key) || 0);
+    const pts = vals.map((v,i)=>point(i,maxR*(v/5)).join(',')).join(' ');
+    html += `<polygon points="${pts}" fill="rgba(10,111,174,.20)" stroke="#0A6FAE" stroke-width="3"/>`;
+    vals.forEach((v,i)=>{
+      const [x,y]=point(i,maxR*(v/5));
+      html += `<circle cx="${x}" cy="${y}" r="4" fill="#003B5C"/>`;
+    });
+    svg.innerHTML = html;
+  }
+
+  function initPlan(){
+    const body = $('planBody');
+    body.innerHTML = '';
+    for(let i=0;i<3;i++){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><span class="priority-chip p${i+1}">P${i+1}</span></td>
+        <td><select class="plan-dim">${positionDimensions.map(d=>`<option>${d.label}</option>`).join('')}</select></td>
+        <td><textarea class="plan-action" placeholder="Concrete action"></textarea></td>
+        <td><textarea class="plan-rationale" placeholder="Evidence supporting this action"></textarea></td>
+        <td><input class="plan-kpi" placeholder="KPI"></td>
+        <td><input class="plan-baseline" placeholder="Current"></td>
+        <td><input class="plan-target" placeholder="Target"></td>
+        <td><input class="plan-owner" placeholder="Owner"></td>
+        <td><select class="plan-horizon"><option>30 days</option><option>60 days</option><option>90 days</option><option>6 months</option></select></td>`;
+      body.appendChild(tr);
+    }
+    document.querySelectorAll('#planBody input,#planBody textarea,#planBody select').forEach(el=>el.addEventListener('input',()=>{saveLocal();updateProgress()}));
+  }
+
+  function suggestPlan(){
+    const scored = positionDimensions.map(d=>({...d,score:positionScore(d.key)})).filter(d=>d.score!==null).sort((a,b)=>a.score-b.score);
+    if(!scored.length){ toast('Score the positioning dimensions first.'); return; }
+    const rows = [...$('planBody').querySelectorAll('tr')];
+    const suggestions = {
+      Search:{action:'Improve non-branded discoverability around priority category intent.',kpi:'Visibility / priority rankings'},
+      Demand:{action:'Increase qualified branded demand through distinctive category associations.',kpi:'Branded search index'},
+      Paid:{action:'Test a sharper message angle and align ads with dedicated landing pages.',kpi:'CTR / CVR / CPA'},
+      Audience:{action:'Build presence in the environments where the Buyer Persona already pays attention.',kpi:'Qualified referral / reach'},
+      AI:{action:'Create citation-ready authoritative content and improve entity consistency.',kpi:'AI mentions / citations'}
+    };
+    rows.forEach((tr,i)=>{
+      const d = scored[i % scored.length];
+      const s = suggestions[d.label];
+      tr.querySelector('.plan-dim').value=d.label;
+      tr.querySelector('.plan-action').value=s.action;
+      tr.querySelector('.plan-rationale').value=`Current observable score: ${d.score}/5. ${state.positioning[d.key]?.evidence || 'Add supporting evidence.'}`;
+      tr.querySelector('.plan-kpi').value=s.kpi;
+      tr.querySelector('.plan-baseline').value=`${d.score}/5`;
+      tr.querySelector('.plan-target').value=i===0?'4/5':'Improve vs. baseline';
+      tr.querySelector('.plan-horizon').value=i===0?'30 days':i===1?'60 days':'90 days';
+    });
+    if(!$('mainGap').value) $('mainGap').value=`Lowest current positioning signal: ${scored[0].label} (${scored[0].score}/5). Validate its relevance to the Buyer Persona before investment.`;
+    saveLocal(); updateProgress(); toast('Plan suggested from your diagnosis.');
+  }
+
+  function collectPlan(){
+    return [...$('planBody').querySelectorAll('tr')].map((tr,i)=>({
+      priority:`P${i+1}`,
+      dimension:tr.querySelector('.plan-dim').value,
+      action:tr.querySelector('.plan-action').value,
+      rationale:tr.querySelector('.plan-rationale').value,
+      kpi:tr.querySelector('.plan-kpi').value,
+      baseline:tr.querySelector('.plan-baseline').value,
+      target:tr.querySelector('.plan-target').value,
+      owner:tr.querySelector('.plan-owner').value,
+      horizon:tr.querySelector('.plan-horizon').value
+    }));
+  }
+
+  function labData(){
+    const rows = matrixRows();
+    return {
+      meta:{title:'DOC ROI Competitive Positioning Lab', exportedAt:new Date().toISOString()},
+      context:{
+        brand:$('brandName').value, product:$('productName').value,
+        buyerPersona:$('buyerPersona').value, market:$('marketContext').value
+      },
+      competitors:getCompetitors(),
+      matrix:rows.map(r=>({
+        brand:r.name, role:r.role,
+        scores:Object.fromEntries(techniques.map(t=>[t.label,state.scores[`${r.index}|${t.key}`] || ''])),
+        average:rowStats(r.index).avg,
+        evidence:state.evidence[r.index] || ''
+      })),
+      positioning:Object.fromEntries(positionDimensions.map(d=>[d.label,{
+        score:state.positioning[d.key]?.score || '',
+        evidence:state.positioning[d.key]?.evidence || ''
+      }])),
+      strategy:{
+        objective:$('positionObjective').value,
+        targetPerception:$('targetPerception').value,
+        mainGap:$('mainGap').value,
+        plan:collectPlan()
+      },
+      submission:{
+        student:$('studentName') ? $('studentName').value : '',
+        group:$('studentGroup') ? $('studentGroup').value : '',
+        date:$('submissionDate') ? $('submissionDate').value : '',
+        caseName:$('submissionCase') ? $('submissionCase').value : '',
+        defence:$('defenceAnswer') ? $('defenceAnswer').value : '',
+        completion:$('progressText') ? $('progressText').textContent : '0%'
+      }
+    };
+  }
+
+  function exportJSON(){
+    download('DOC_ROI_Competitive_Positioning_Lab.json', JSON.stringify(labData(),null,2), 'application/json');
+  }
+
+  function csvCell(v){
+    const s=safe(v).replace(/"/g,'""');
+    return `"${s}"`;
+  }
+  function exportCSV(){
+    const data=labData();
+    const headers=['Brand','Role',...techniques.map(t=>t.label),'Average','Evidence'];
+    const lines=[headers.map(csvCell).join(',')];
+    data.matrix.forEach(r=>{
+      const row=[r.brand,r.role,...techniques.map(t=>r.scores[t.label]),r.average===null?'':r.average.toFixed(2),r.evidence];
+      lines.push(row.map(csvCell).join(','));
+    });
+    download('DOC_ROI_Competitive_Marketing_Matrix.csv', '\uFEFF'+lines.join('\n'), 'text/csv;charset=utf-8');
+  }
+
+  function download(name,content,type){
+    const blob=new Blob([content],{type});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);
+  }
+
+  function executiveSummary(){
+    const rows=matrixRows();
+    const own=rowStats('own');
+    const comps=rows.filter(r=>!r.own).map(r=>({name:r.name,...rowStats(r.index)})).filter(x=>x.avg!==null).sort((a,b)=>b.avg-a.avg);
+    const scored=positionDimensions.map(d=>({...d,score:positionScore(d.key)})).filter(d=>d.score!==null).sort((a,b)=>b.score-a.score);
+    const strongest=scored[0], weakest=[...scored].sort((a,b)=>a.score-b.score)[0];
+    return `COMPETITIVE POSITIONING DIAGNOSIS
+
+Brand: ${$('brandName').value || '—'}
+Product: ${$('productName').value || '—'}
+Buyer Persona: ${$('buyerPersona').value || '—'}
+Market: ${$('marketContext').value || '—'}
+
+Competitive marketing intensity:
+- Our observable average: ${own.avg===null?'—':own.avg.toFixed(2)+'/5'}
+- Highest observed competitor: ${comps.length?`${comps[0].name} · ${comps[0].avg.toFixed(2)}/5`:'—'}
+
+Digital positioning:
+- Strongest signal: ${strongest?`${strongest.label} · ${strongest.score}/5`:'—'}
+- Priority diagnosis: ${weakest?`${weakest.label} · ${weakest.score}/5`:'—'}
+
+Strategic objective:
+${$('positionObjective').value || '—'}
+
+Target perception:
+${$('targetPerception').value || '—'}
+
+Evidence-based gap:
+${$('mainGap').value || '—'}
+
+Next actions:
+${collectPlan().map(p=>`- ${p.priority} · ${p.dimension}: ${p.action || '—'} | KPI: ${p.kpi || '—'} | ${p.horizon}`).join('\n')}
+
+Defence question:
+What evidence changed how we understand our competitive position?`;
+  }
+
+
+  function computeFinalMetrics(){
+    const rows=matrixRows();
+    const own=rowStats('own');
+    const comps=rows.filter(r=>!r.own).map(r=>({name:r.name,...rowStats(r.index)})).filter(x=>x.avg!==null).sort((a,b)=>b.avg-a.avg);
+    const tech=techniques.map(t=>({label:t.label,...techniqueStats(t.key)})).filter(x=>x.avg!==null);
+    const high=[...tech].sort((a,b)=>b.avg-a.avg)[0];
+    const low=[...tech].sort((a,b)=>a.avg-b.avg)[0];
+    const pos=positionDimensions.map(d=>({...d,score:positionScore(d.key)})).filter(d=>d.score!==null);
+    const posHigh=[...pos].sort((a,b)=>b.score-a.score)[0];
+    const posLow=[...pos].sort((a,b)=>a.score-b.score)[0];
+    const posAvg=pos.length?pos.reduce((a,b)=>a+b.score,0)/pos.length:null;
+    return {own,comps,high,low,pos,posHigh,posLow,posAvg};
+  }
+
+  function renderFinalReport(){
+    calculate();
+    const d=labData();
+    const m=computeFinalMetrics();
+    const report=$('finalReport');
+    if(!report) return;
+    const student=d.submission.student || 'Not provided';
+    const group=d.submission.group || 'Not provided';
+    const date=d.submission.date || new Date().toISOString().slice(0,10);
+    const caseName=d.submission.caseName || d.context.brand || d.context.product || 'Competitive Positioning Lab';
+    const generated=new Date();
+    const evidenceId='CP-'+generated.toISOString().replace(/[-:TZ.]/g,'').slice(0,14);
+    const scoreCell=v=>v && v!=='NO' ? escapeHtml(v) : (v==='NO'?'N/O':'—');
+
+    const competitorRows=d.competitors.filter(c=>c.name).map(c=>`<tr><td>${escapeHtml(c.name)}</td><td>${escapeHtml(c.role)}</td><td>${escapeHtml(c.why||'—')}</td><td>${escapeHtml(c.url||'—')}</td></tr>`).join('') || '<tr><td colspan="4">No competitors documented.</td></tr>';
+    const matrixRowsHtml=d.matrix.map(r=>`<tr><td><strong>${escapeHtml(r.brand)}</strong><br><span style="color:#64748b">${escapeHtml(r.role)}</span></td>${techniques.map(t=>`<td>${scoreCell(r.scores[t.label])}</td>`).join('')}<td>${r.average===null?'—':Number(r.average).toFixed(2)}</td><td>${escapeHtml(r.evidence||'—')}</td></tr>`).join('');
+    const positioningRows=positionDimensions.map(dim=>{const p=d.positioning[dim.label]||{};return `<tr><td><strong>${dim.label}</strong></td><td>${scoreCell(p.score)}</td><td>${escapeHtml(p.evidence||'—')}</td></tr>`}).join('');
+    const planRows=d.strategy.plan.map(p=>`<tr><td>${escapeHtml(p.priority)}</td><td>${escapeHtml(p.dimension)}</td><td>${escapeHtml(p.action||'—')}</td><td>${escapeHtml(p.rationale||'—')}</td><td>${escapeHtml(p.kpi||'—')}</td><td>${escapeHtml(p.baseline||'—')}</td><td>${escapeHtml(p.target||'—')}</td><td>${escapeHtml(p.owner||'—')}</td><td>${escapeHtml(p.horizon||'—')}</td></tr>`).join('');
+
+    report.innerHTML=`
+      <div class="report-cover">
+        <div class="report-brand">DOC ROI · Marketing Management I</div>
+        <h2>Competitive Positioning · Final Evidence</h2>
+        <p>Evidence-based competitive matrix, digital positioning diagnosis and strategic positioning plan.</p>
+        <div class="report-cover-grid">
+          <div class="report-cover-item"><span>Student / team</span><strong>${escapeHtml(student)}</strong></div>
+          <div class="report-cover-item"><span>Group / cohort</span><strong>${escapeHtml(group)}</strong></div>
+          <div class="report-cover-item"><span>Case</span><strong>${escapeHtml(caseName)}</strong></div>
+          <div class="report-cover-item"><span>Submission date</span><strong>${escapeHtml(date)}</strong></div>
+        </div>
+      </div>
+      <div class="report-body">
+        <div class="report-section">
+          <h3>1. Decision context</h3>
+          <div class="report-context-grid">
+            <div class="report-context-box"><span>Brand</span><p>${escapeHtml(d.context.brand||'—')}</p></div>
+            <div class="report-context-box"><span>Product / service</span><p>${escapeHtml(d.context.product||'—')}</p></div>
+            <div class="report-context-box"><span>Buyer Persona</span><p>${escapeHtml(d.context.buyerPersona||'—')}</p></div>
+            <div class="report-context-box"><span>Market</span><p>${escapeHtml(d.context.market||'—')}</p></div>
+          </div>
+        </div>
+        <div class="report-section">
+          <h3>2. Competitive set</h3>
+          <div class="report-table-wrap"><table class="report-table"><thead><tr><th>Brand</th><th>Role</th><th>Why relevant?</th><th>Evidence starting point</th></tr></thead><tbody>${competitorRows}</tbody></table></div>
+        </div>
+        <div class="report-section">
+          <h3>3. Competitive Marketing Matrix</h3>
+          <div class="report-table-wrap"><table class="report-table"><thead><tr><th>Brand</th>${techniques.map(t=>`<th>${t.label}</th>`).join('')}<th>Average</th><th>Evidence</th></tr></thead><tbody>${matrixRowsHtml}</tbody></table></div>
+        </div>
+        <div class="report-section">
+          <h3>4. Matrix reading</h3>
+          <div class="report-kpis">
+            <div class="report-kpi"><span>Our observable average</span><strong>${m.own.avg===null?'—':m.own.avg.toFixed(2)+'/5'}</strong><small>${escapeHtml(d.context.brand||'Our brand')}</small></div>
+            <div class="report-kpi"><span>Highest competitor</span><strong>${m.comps.length?m.comps[0].avg.toFixed(2)+'/5':'—'}</strong><small>${m.comps.length?escapeHtml(m.comps[0].name):'No data'}</small></div>
+            <div class="report-kpi"><span>Saturated technique</span><strong>${m.high?escapeHtml(m.high.label):'—'}</strong><small>${m.high?m.high.avg.toFixed(2)+'/5 average intensity':'No data'}</small></div>
+            <div class="report-kpi"><span>Potential whitespace</span><strong>${m.low?escapeHtml(m.low.label):'—'}</strong><small>${m.low?m.low.avg.toFixed(2)+'/5 average intensity':'No data'}</small></div>
+          </div>
+        </div>
+        <div class="report-section">
+          <h3>5. Digital positioning diagnosis</h3>
+          <div class="report-kpis" style="margin-bottom:14px">
+            <div class="report-kpi"><span>Positioning average</span><strong>${m.posAvg===null?'—':m.posAvg.toFixed(2)+'/5'}</strong><small>Search · Demand · Paid · Audience · AI</small></div>
+            <div class="report-kpi"><span>Strongest signal</span><strong>${m.posHigh?escapeHtml(m.posHigh.label):'—'}</strong><small>${m.posHigh?m.posHigh.score+'/5':'No data'}</small></div>
+            <div class="report-kpi"><span>Priority gap</span><strong>${m.posLow?escapeHtml(m.posLow.label):'—'}</strong><small>${m.posLow?m.posLow.score+'/5':'No data'}</small></div>
+            <div class="report-kpi"><span>Completion</span><strong>${escapeHtml(d.submission.completion||'0%')}</strong><small>Lab completion at generation</small></div>
+          </div>
+          <div class="report-table-wrap"><table class="report-table"><thead><tr><th>Dimension</th><th>Score</th><th>Evidence</th></tr></thead><tbody>${positioningRows}</tbody></table></div>
+        </div>
+        <div class="report-section">
+          <h3>6. Strategic positioning decision</h3>
+          <div class="report-decision"><strong>Objective</strong><p>${escapeHtml(d.strategy.objective||'—')}</p><strong>Target perception / association</strong><p>${escapeHtml(d.strategy.targetPerception||'—')}</p><strong>Main evidence-based gap</strong><p>${escapeHtml(d.strategy.mainGap||'—')}</p></div>
+        </div>
+        <div class="report-section">
+          <h3>7. Positioning action plan</h3>
+          <div class="report-table-wrap"><table class="report-table"><thead><tr><th>Priority</th><th>Dimension</th><th>Action</th><th>Evidence / rationale</th><th>KPI</th><th>Baseline</th><th>Target</th><th>Owner</th><th>Horizon</th></tr></thead><tbody>${planRows}</tbody></table></div>
+        </div>
+        <div class="report-section">
+          <h3>8. Final defence</h3>
+          <div class="report-decision"><strong>What evidence changed how you understand your competitive position?</strong><p>${escapeHtml(d.submission.defence||'—')}</p></div>
+          <div class="report-signoff"><div class="sign-line">Student / team signature</div><div class="sign-line">Instructor review</div></div>
+        </div>
+      </div>
+      <div class="report-foot"><span>Evidence ID: ${evidenceId}</span><span>Generated: ${generated.toLocaleString()}</span><span>DOC ROI · Competition & Positioning Lab</span></div>`;
+    $('finalProgress').textContent=d.submission.completion||'0%';
+    toast('Final evidence generated.');
+  }
+
+  async function captureFinalCanvas(){
+    renderFinalReport();
+    if(typeof html2canvas!=='function') throw new Error('Image export library is not available.');
+    const el=$('finalReport');
+    return await html2canvas(el,{scale:2,useCORS:true,backgroundColor:'#ffffff',logging:false,windowWidth:Math.max(el.scrollWidth,1180)});
+  }
+
+  async function downloadFinalImage(){
+    try{
+      const canvas=await captureFinalCanvas();
+      canvas.toBlob(blob=>{ if(!blob) return; const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='DOC_ROI_Competitive_Positioning_Final_Evidence.png'; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500); },'image/png');
+    }catch(e){ toast('Image export unavailable. Use Print / PDF as fallback.'); }
+  }
+
+  async function buildPdfBlob(){
+    const canvas=await captureFinalCanvas();
+    if(!window.jspdf || !window.jspdf.jsPDF) throw new Error('PDF export library is not available.');
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a4',compress:true});
+    const pageW=210,pageH=297,margin=10,usableW=pageW-margin*2,usableH=pageH-margin*2;
+    const pxPerMm=canvas.width/usableW;
+    const sliceH=Math.floor(usableH*pxPerMm);
+    let y=0,page=0;
+    while(y<canvas.height){
+      const h=Math.min(sliceH,canvas.height-y);
+      const slice=document.createElement('canvas');slice.width=canvas.width;slice.height=h;
+      const ctx=slice.getContext('2d');ctx.drawImage(canvas,0,y,canvas.width,h,0,0,canvas.width,h);
+      const img=slice.toDataURL('image/jpeg',0.94);
+      const mmH=h/pxPerMm;
+      if(page>0) pdf.addPage();
+      pdf.addImage(img,'JPEG',margin,margin,usableW,mmH,undefined,'FAST');
+      y+=h;page++;
+    }
+    return pdf.output('blob');
+  }
+
+  async function downloadFinalPdf(){
+    try{
+      const blob=await buildPdfBlob();
+      const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='DOC_ROI_Competitive_Positioning_Final_Evidence.pdf';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},700);
+    }catch(e){ toast('PDF export unavailable. Opening print view instead.'); printFinalEvidence(); }
+  }
+
+  function printFinalEvidence(){
+    renderFinalReport();
+    document.body.classList.add('print-final');
+    const cleanup=()=>document.body.classList.remove('print-final');
+    window.addEventListener('afterprint',cleanup,{once:true});
+    setTimeout(()=>window.print(),100);
+  }
+
+  async function shareFinalEvidence(){
+    try{
+      const blob=await buildPdfBlob();
+      const file=new File([blob],'DOC_ROI_Competitive_Positioning_Final_Evidence.pdf',{type:'application/pdf'});
+      if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
+        await navigator.share({title:'DOC ROI · Competitive Positioning Final Evidence',text:'Student evidence generated from the Competitive Positioning Lab.',files:[file]});
+      } else {
+        const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=file.name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},700);
+        await copySummary();
+        toast('Sharing is not supported here. PDF downloaded and summary copied.');
+      }
+    }catch(e){ if(e && e.name!=='AbortError') toast('Could not share. Download the PDF instead.'); }
+  }
+
+  async function copySummary(){
+    try{
+      await navigator.clipboard.writeText(executiveSummary());
+      toast('Executive summary copied.');
+    }catch(e){
+      const ta=document.createElement('textarea');ta.value=executiveSummary();document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
+      toast('Executive summary copied.');
+    }
+  }
+
+  function classroomExample(){
+    $('brandName').value='Don Espadín';
+    $('productName').value='Premium mezcal · classroom example';
+    $('buyerPersona').value='Premium urban consumer seeking provenance, authenticity, design and a distinctive social ritual. The buyer values quality proof and access but may need a clear premium-price justification.';
+    $('marketContext').value='Premium spirits · Spain · digital-first discovery with specialist retail, hospitality and social recommendation. Classroom simulation only.';
+
+    const example = [
+      ['Premium category leader','Market leader','Reference brand with high category visibility and strong premium cues.','https://example.com/leader'],
+      ['Craft Mezcal A','Direct competitor','Comparable premium mezcal proposition and buyer criteria.','https://example.com/a'],
+      ['Premium Spirits B','Attention competitor','Competes for the same premium social and gifting attention.','https://example.com/b'],
+      ['Mezcal Search Player C','Demand competitor','Visible around category-intent search terms.','https://example.com/c'],
+      ['Specialist Retailer D','Channel competitor','Controls discovery and conversion in specialist e-commerce.','https://example.com/d'],
+      ['Premium Tequila E','Substitute competitor','Different solution but competes for a similar premium ritual and occasion.','https://example.com/e']
+    ];
+    [...$('competitorBody').querySelectorAll('tr')].forEach((tr,i)=>{
+      tr.querySelector('.comp-name').value=example[i][0];
+      tr.querySelector('.comp-role').value=example[i][1];
+      tr.querySelector('.comp-why').value=example[i][2];
+      tr.querySelector('.comp-url').value=example[i][3];
+    });
+    rebuildMatrix(false);
+
+    const scoreRows = {
+      own:[3,2,4,3,2,2,3],
+      0:[5,4,5,4,5,4,3],
+      1:[4,3,3,5,4,3,2],
+      2:[2,5,4,2,3,4,4],
+      3:[3,1,2,3,2,2,'NO'],
+      4:[4,3,4,4,4,4,2],
+      5:[3,3,5,3,4,3,2]
+    };
+    Object.entries(scoreRows).forEach(([r,vals])=>{
+      techniques.forEach((t,i)=>{
+        const key=`${r}|${t.key}`; state.scores[key]=String(vals[i]);
+      });
+      state.evidence[r]='Classroom example · replace with real source, date checked and short justification.';
+    });
+    rebuildMatrix(true);
+
+    const pos = {search:3,demand:2,paid:2,audience:4,ai:1};
+    Object.entries(pos).forEach(([k,v])=>state.positioning[k]={score:String(v), evidence:'Classroom example · validate with an observable source before submission.'});
+    document.querySelectorAll('.position-score').forEach(el=>el.value=state.positioning[el.dataset.key]?.score || '');
+    document.querySelectorAll('.position-evidence').forEach(el=>el.value=state.positioning[el.dataset.key]?.evidence || '');
+
+    $('positionObjective').value='Increase category discoverability and premium credibility without diluting the brand’s provenance-led differentiation.';
+    $('targetPerception').value='A credible, distinctive premium mezcal with strong origin proof and a memorable social ritual.';
+    $('mainGap').value='Low demand and AI discovery signals compared with stronger audience/social presence.';
+    renderPositionDiagnosis();
+    suggestPlan();
+    saveLocal(); updateProgress(); toast('Classroom example loaded.');
+  }
+
+  function clearCompetitors(){
+    [...$('competitorBody').querySelectorAll('tr')].forEach(tr=>{
+      tr.querySelector('.comp-name').value='';
+      tr.querySelector('.comp-why').value='';
+      tr.querySelector('.comp-url').value='';
+    });
+    state.scores={};state.evidence={}; rebuildMatrix(false); saveLocal(); updateProgress();
+  }
+
+  function clearScores(){
+    state.scores={};state.evidence={}; rebuildMatrix(false); saveLocal(); updateProgress(); toast('Matrix scores cleared.');
+  }
+
+  function clearPlan(){
+    $('positionObjective').value='';$('targetPerception').value='';$('mainGap').value='';
+    initPlan();saveLocal();updateProgress();
+  }
+
+  function resetAll(){
+    if(!confirm('Start a blank lab? This will clear the current exercise, including any classroom example.')) return;
+    localStorage.removeItem('docroi_comp_positioning_lab_v1');
+    location.reload();
+  }
+
+  function startBlank(){
+    if(!confirm('Clear the current exercise and start blank?')) return;
+    localStorage.removeItem('docroi_comp_positioning_lab_v1');
+    location.reload();
+  }
+
+  function saveLocal(){
+    try{ localStorage.setItem('docroi_comp_positioning_lab_v1',JSON.stringify(labData())); }catch(e){}
+  }
+
+  function restoreLocal(){
+    let d; try{d=JSON.parse(localStorage.getItem('docroi_comp_positioning_lab_v1')||'null')}catch(e){}
+    if(!d) return;
+    $('brandName').value=d.context?.brand||'';
+    $('productName').value=d.context?.product||'';
+    $('buyerPersona').value=d.context?.buyerPersona||'';
+    $('marketContext').value=d.context?.market||'';
+    const trs=[...$('competitorBody').querySelectorAll('tr')];
+    (d.competitors||[]).forEach((c,i)=>{
+      if(!trs[i])return;
+      trs[i].querySelector('.comp-name').value=c.name||'';
+      trs[i].querySelector('.comp-role').value=c.role||competitorRoles[Math.min(i,5)];
+      trs[i].querySelector('.comp-why').value=c.why||'';
+      trs[i].querySelector('.comp-url').value=c.url||'';
+    });
+    rebuildMatrix(false);
+    (d.matrix||[]).forEach((r,ri)=>{
+      const rowKey=ri===0?'own':String(ri-1);
+      techniques.forEach(t=>state.scores[`${rowKey}|${t.key}`]=safe(r.scores?.[t.label]||''));
+      state.evidence[rowKey]=r.evidence||'';
+    });
+    rebuildMatrix(true);
+    positionDimensions.forEach(dim=>{
+      const v=d.positioning?.[dim.label]||{};
+      state.positioning[dim.key]={score:safe(v.score||''),evidence:v.evidence||''};
+    });
+    document.querySelectorAll('.position-score').forEach(el=>el.value=state.positioning[el.dataset.key]?.score||'');
+    document.querySelectorAll('.position-evidence').forEach(el=>el.value=state.positioning[el.dataset.key]?.evidence||'');
+    $('positionObjective').value=d.strategy?.objective||'';
+    $('targetPerception').value=d.strategy?.targetPerception||'';
+    $('mainGap').value=d.strategy?.mainGap||'';
+    const rows=[...$('planBody').querySelectorAll('tr')];
+    (d.strategy?.plan||[]).forEach((p,i)=>{
+      if(!rows[i])return; const tr=rows[i];
+      tr.querySelector('.plan-dim').value=p.dimension||'Search';
+      tr.querySelector('.plan-action').value=p.action||'';
+      tr.querySelector('.plan-rationale').value=p.rationale||'';
+      tr.querySelector('.plan-kpi').value=p.kpi||'';
+      tr.querySelector('.plan-baseline').value=p.baseline||'';
+      tr.querySelector('.plan-target').value=p.target||'';
+      tr.querySelector('.plan-owner').value=p.owner||'';
+      tr.querySelector('.plan-horizon').value=p.horizon||'30 days';
+    });
+    calculate();renderPositionDiagnosis();updateProgress();
+  }
+
+  function updateProgress(){
+    const fields=[...document.querySelectorAll('[data-required]')];
+    let complete=fields.filter(f=>f.value.trim()).length;
+    let total=fields.length;
+
+    const comps=getCompetitors();
+    total+=6; complete+=comps.filter(c=>c.name && c.why).length;
+
+    total+=matrixRows().length*2;
+    complete+=matrixRows().filter(r=>rowStats(r.index).count>=4).length;
+    complete+=matrixRows().filter(r=>(state.evidence[r.index]||'').trim()).length;
+
+    total+=5; complete+=positionDimensions.filter(d=>positionScore(d.key)!==null).length;
+
+    const plan=collectPlan();total+=3;complete+=plan.filter(p=>p.action.trim()&&p.kpi.trim()).length;
+
+    const pct=Math.round(Math.min(100,(complete/Math.max(1,total))*100));
+    $('progressFill').style.width=pct+'%';$('progressText').textContent=pct+'%'; if($('finalProgress')) $('finalProgress').textContent=pct+'%';
+  }
+
+  let toastTimer;
+  function toast(msg){
+    const el=$('toast');el.textContent=msg;el.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1800);
+  }
+
+
+  document.addEventListener("click", function (event) {
+    const link = event.target.closest("a[href^='#']");
+    if (!link) return;
+    const id = link.getAttribute("href").slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.pushState(null, "", "#" + id);
+  });
+
+  // Init
+  initCompetitors();
+  initPositioning();
+  initPlan();
+  rebuildMatrix(false);
+  localStorage.removeItem('docroi_comp_positioning_lab_v1');
+  if($('submissionDate')) $('submissionDate').value=new Date().toISOString().slice(0,10);
+
+  $('menuBtn').addEventListener('click',()=> $('navMenu').classList.toggle('open'));
+  $('navMenu').addEventListener('click',()=> $('navMenu').classList.remove('open'));
+  $('loadExample').addEventListener('click',classroomExample);
+  $('loadExampleTop').addEventListener('click',classroomExample);
+  $('startBlankTop').addEventListener('click',startBlank);
+  $('startBlank').addEventListener('click',startBlank);
+  $('clearCompetitors').addEventListener('click',clearCompetitors);
+  $('clearScores').addEventListener('click',clearScores);
+  $('calculateBtn').addEventListener('click',()=>{calculate();toast('Diagnosis recalculated.');});
+  $('suggestPlan').addEventListener('click',suggestPlan);
+  $('clearPlan').addEventListener('click',clearPlan);
+  $('exportJson').addEventListener('click',exportJSON);
+  $('exportCsv').addEventListener('click',exportCSV);
+  $('copySummary').addEventListener('click',copySummary);
+  $('resetAll').addEventListener('click',resetAll);
+  $('generateFinal').addEventListener('click',renderFinalReport);
+  $('downloadImage').addEventListener('click',downloadFinalImage);
+  $('downloadPdf').addEventListener('click',downloadFinalPdf);
+  $('printFinal').addEventListener('click',printFinalEvidence);
+  $('shareFinal').addEventListener('click',shareFinalEvidence);
+
+  document.querySelectorAll('input,textarea,select').forEach(el=>{
+    if(!el.classList.contains('matrix-score') && !el.classList.contains('position-score')){
+      el.addEventListener('input',()=>{saveLocal();updateProgress();});
+      el.addEventListener('change',()=>{
+        if(el.classList.contains('comp-name')) rebuildMatrix(true);
+        saveLocal();updateProgress();
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>
